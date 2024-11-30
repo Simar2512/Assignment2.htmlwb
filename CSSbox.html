@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>CSS Box Model</title>
+  <style>
+    #myDiv {
+      width: 200px;
+      height: 100px;
+      padding: 20px;
+      border: 1px solid black;
+      margin: 10px;
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div id="myDiv">Welcome to Web Programming</div>
+  <script>
+    let div = document.getElementById('myDiv');
+
+    div.addEventListener('click', function() {
+      div.style.backgroundColor = getRandomColor();
+    });
+
+    div.addEventListener('mouseover', function() {
+      div.style.borderColor = getRandomColor();
+    });
+    function getRandomColor() {
+      let letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+</body>
+</html>
+
+
+

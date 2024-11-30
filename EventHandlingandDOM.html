@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>Event Handling</title>
+</head>
+<body>
+  <button id="myButton">Click Me!</button>
+
+  <script>
+    let button = document.getElementById('myButton');
+
+    button.addEventListener('click', function() {
+      alert('Button clicked!');
+      button.style.backgroundColor = getRandomColor();
+    });
+
+    function getRandomColor() {
+      let letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+</body>
+
+<html>
+<head>
+    <title>DOM Manipulation</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #d0d0d0;
+        }
+    </style>
+</head>
+<body>
+    <ul id="myList">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+
+    <script>
+        function getRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+        window.onload = function() {
+            const ul = document.getElementById('myList');
+            const newLi = document.createElement('li');
+            newLi.textContent = 'Fourth item';
+            ul.appendChild(newLi);
+
+            
+            const listItems = ul.getElementsByTagName('li');
+            for (let i = 0; i < listItems.length; i++) {
+                listItems[i].addEventListener('click', function() {
+                    this.textContent = getRandomString(10); 
+                });
+            }
+        };
+    </script>
+</body>
+</html>
